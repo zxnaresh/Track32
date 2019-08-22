@@ -55,9 +55,7 @@ public class LoginFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel.class);
-        binding.buttonLogin.setOnClickListener(v -> {
-            Navigation.findNavController(binding.getRoot()).navigate(R.id.action_loginFragment_to_homeFragment);
-        });
+
     }
 
 
