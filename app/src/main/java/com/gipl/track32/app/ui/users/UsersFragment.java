@@ -1,4 +1,4 @@
-package com.gipl.track32.app.ui.employee;
+package com.gipl.track32.app.ui.users;
 
 
 import android.content.Context;
@@ -16,10 +16,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.gipl.track32.app.R;
+import com.gipl.track32.app.vo.Resource;
+import com.gipl.track32.app.vo.User;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,9 +51,19 @@ public class UsersFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(UsersViewModel.class);
         viewModel.getUsersLiveData().observe(this, resource -> {
-
-            Log.d(TAG, "status : " + resource.status);
+            Timber.d("status : %s", resource.status);
+            showUsers(resource.data);
         });
+    }
+
+    private void showUsers(List<User> users) {
+
+        if (users == null) {
+            Timber.d("users list is null");
+            return;
+        }
+
+        Timber.d("displaying " + users.size() + " users ");
     }
 
     @Override
@@ -57,7 +72,7 @@ public class UsersFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_users, container, false);
         view.findViewById(R.id.button).setOnClickListener(v -> {
-            Log.d(TAG, " ------------------------- \n getUsers() called...");
+            Timber.d(" ------------------------- \n getUsers() called...");
             viewModel.getUsers();
         });
         return view;

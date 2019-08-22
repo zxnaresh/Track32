@@ -1,7 +1,7 @@
 package com.gipl.track32.app.di;
 
 import com.gipl.track32.app.ui.splash.SplashFragment;
-import com.gipl.track32.app.ui.employee.UsersFragment;
+import com.gipl.track32.app.ui.users.UsersFragment;
 import com.gipl.track32.app.ui.home.HomeFragment;
 import com.gipl.track32.app.ui.login.LoginFragment;
 

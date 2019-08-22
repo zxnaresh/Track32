@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/employeeFragment"
-        android:name="com.gipl.track32.app.ui.employee.UsersFragment"
+        android:name="com.gipl.track32.app.ui.users.UsersFragment"
         android:label="fragment_employee"
         tools:layout="@layout/fragment_users" />
 </navigation>

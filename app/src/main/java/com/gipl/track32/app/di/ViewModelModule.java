@@ -3,7 +3,7 @@ package com.gipl.track32.app.di;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.gipl.track32.app.ui.employee.UsersViewModel;
+import com.gipl.track32.app.ui.users.UsersViewModel;
 import com.gipl.track32.app.ui.home.HomeViewodel;
 import com.gipl.track32.app.ui.login.LoginViewModel;
 import com.gipl.track32.app.ui.splash.SplashViewModel;

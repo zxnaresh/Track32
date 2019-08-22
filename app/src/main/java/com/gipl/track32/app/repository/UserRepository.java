@@ -19,6 +19,8 @@ import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
+import timber.log.Timber;
+
 /**
  * Created by naresh on 20-Aug-2019.
  */
@@ -42,27 +44,27 @@ public class UserRepository {
             @Override
             protected void saveCallResult(@NonNull List<User> items) {
                 userDao.insert(items.toArray(new User[0]));
-                Log.d(TAG, "items inserted");
+                Timber.d("items inserted");
             }
 
             @Override
             protected boolean shouldFetch(@Nullable List<User> data) {
                 boolean shouldFetch = data == null || data.size() == 0 || usersListRateLimiter.shouldFetch(KEY_ALL_USERS);
-                Log.d(TAG, "should fetch: " + shouldFetch);
+                Timber.d("should fetch: %s", shouldFetch);
                 return shouldFetch;
             }
 
             @NonNull
             @Override
             protected LiveData<List<User>> loadFromDb() {
-                Log.d(TAG, "loading from db");
+                Timber.d("loading from db");
                 return userDao.getAllUsers();
             }
 
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<User>>> createCall() {
-                Log.d(TAG, "creating call");
+                Timber.d("creating call");
                 return webService.getUsers();
             }
 

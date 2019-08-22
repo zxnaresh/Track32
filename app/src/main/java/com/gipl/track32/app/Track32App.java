@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
+import timber.log.Timber;
 
 /**
  * Created by naresh on 16-Jul-2019.
@@ -27,6 +28,9 @@ public class Track32App extends Application implements HasActivityInjector {
         .build()
         .inject(this);
 
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 
     @Override
